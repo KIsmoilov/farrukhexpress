@@ -66,12 +66,18 @@ code change. [`Logo`](src/components/Logo.tsx) requests `company.logo` (`/logo.p
 silently falls back to the placeholder only while that file is missing, so the header and
 footer pick the real badge up as soon as it lands.
 
-Two extras worth doing at the same time:
+### Icons
 
-- **Favicon** — replace `public/favicon.svg`, or point the `<link rel="icon">` in
-  [`index.html`](index.html) at the new file.
-- **Social preview** — update the `og:image` meta tag in [`index.html`](index.html), which
-  still points at `logo.svg`.
+The artwork has a solid white background and no alpha, which shows as a white square in
+the browser tab. `public/favicon.png` and `public/apple-touch-icon.png` are generated
+from it with a transparent circular mask:
+
+```bash
+python3 scripts/make-icons.py
+```
+
+Re-run that after replacing `public/logo.png`. The header and footer mask the same way in
+CSS (`.brand__mark`), so no separate asset is needed there.
 
 ## Design system
 
