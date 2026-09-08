@@ -61,10 +61,17 @@ CDL and endorsement fields for driving roles.
 `public/logo.svg` is a **placeholder** approximating the real gold badge — it is not the
 actual artwork.
 
-To install the real logo: save the file into `public/` (e.g. `public/logo.png`), then
-change the single `logo` field in [`src/data/site.ts`](src/data/site.ts) to match. The
-header and footer both read the path from there. For the browser tab, also replace
-`public/favicon.svg` or update the `<link rel="icon">` in [`index.html`](index.html).
+**To install the real logo, save it as `public/logo.png`. That is the whole step** — no
+code change. [`Logo`](src/components/Logo.tsx) requests `company.logo` (`/logo.png`) and
+silently falls back to the placeholder only while that file is missing, so the header and
+footer pick the real badge up as soon as it lands.
+
+Two extras worth doing at the same time:
+
+- **Favicon** — replace `public/favicon.svg`, or point the `<link rel="icon">` in
+  [`index.html`](index.html) at the new file.
+- **Social preview** — update the `og:image` meta tag in [`index.html`](index.html), which
+  still points at `logo.svg`.
 
 ## Design system
 

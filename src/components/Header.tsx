@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import Icon from './Icon'
+import Logo from './Logo'
 import { company } from '../data/site'
 
 const primary = [
@@ -61,7 +62,7 @@ export default function Header() {
       <header className={`header${solid ? ' is-solid' : ''}`}>
         <div className="header__inner">
           <Link to="/" className="brand" aria-label={`${company.name} — home`}>
-            <img src={company.logo} alt="" width={46} height={46} />
+            <Logo size={46} />
             <span className="brand__text">
               <span className="brand__name">Farrukh Express</span>
               <span className="brand__sub">Inc</span>
