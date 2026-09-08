@@ -61,7 +61,7 @@ export default function Header() {
       <header className={`header${solid ? ' is-solid' : ''}`}>
         <div className="header__inner">
           <Link to="/" className="brand" aria-label={`${company.name} — home`}>
-            <img src="/logo.svg" alt="" width={46} height={46} />
+            <img src={company.logo} alt="" width={46} height={46} />
             <span className="brand__text">
               <span className="brand__name">Farrukh Express</span>
               <span className="brand__sub">Inc</span>

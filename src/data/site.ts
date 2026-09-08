@@ -12,6 +12,12 @@ export const company = {
   mapsUrl:
     'https://www.google.com/maps/search/?api=1&query=141+Broad+Blvd+Ste+116,+Cuyahoga+Falls,+OH+44221',
   hours: 'Dispatch available 24/7 · Office Mon–Fri, 9:00 AM – 6:00 PM EST',
+  /**
+   * The one place the logo file is named. Drop the real artwork into public/
+   * and point this at it (e.g. '/logo.png') — header, footer, and the social
+   * preview image all follow from here.
+   */
+  logo: '/logo.svg',
 } as const
 
 export const stats = [

@@ -30,7 +30,7 @@ export default function Footer() {
         <div className="footer__top">
           <div>
             <Link to="/" className="brand" aria-label={`${company.name} — home`}>
-              <img src="/logo.svg" alt="" width={54} height={54} />
+              <img src={company.logo} alt="" width={54} height={54} />
               <span className="brand__text">
                 <span className="brand__name">Farrukh Express</span>
                 <span className="brand__sub">Inc</span>
