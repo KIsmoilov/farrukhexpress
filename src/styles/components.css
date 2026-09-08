@@ -124,7 +124,19 @@
 }
 
 .brand { display: flex; align-items: center; gap: 0.7rem; flex: none; }
-.brand img { width: 46px; height: 46px; }
+/* The badge artwork ships on a solid white square; clip it to its circle so it
+   sits on the dark header cleanly. The slight scale eats the 1-3px white sliver
+   left at the edges of the source image. */
+.brand__mark {
+  flex: none;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--black);
+  display: grid;
+  place-items: center;
+}
+.brand__mark img { width: 106%; height: 106%; max-width: none; object-fit: cover; }
+
 .brand__text { display: flex; flex-direction: column; line-height: 1; }
 .brand__name {
   font-family: var(--font-display);

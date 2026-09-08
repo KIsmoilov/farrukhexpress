@@ -5,19 +5,16 @@ import { company } from '../data/site'
  * Renders the company badge.
  *
  * Prefers the real artwork at `company.logo` and falls back to the bundled
- * placeholder if that file is not present, so dropping the real logo into
- * public/ is the only step needed to install it — no code change.
+ * placeholder if that file is missing. The artwork has a solid white
+ * background, so it is clipped to a circle by `.brand__mark` — see
+ * components.css.
  */
 export default function Logo({ size }: { size: number }) {
   const [src, setSrc] = useState<string>(company.logo)
 
   return (
-    <img
-      src={src}
-      alt=""
-      width={size}
-      height={size}
-      onError={() => setSrc(company.logoFallback)}
-    />
+    <span className="brand__mark" style={{ width: size, height: size }}>
+      <img src={src} alt="" onError={() => setSrc(company.logoFallback)} />
+    </span>
   )
 }
