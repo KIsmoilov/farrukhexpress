@@ -61,10 +61,23 @@ CDL and endorsement fields for driving roles.
 `public/logo.svg` is a **placeholder** approximating the real gold badge — it is not the
 actual artwork.
 
-To install the real logo: save the file into `public/` (e.g. `public/logo.png`), then
-change the single `logo` field in [`src/data/site.ts`](src/data/site.ts) to match. The
-header and footer both read the path from there. For the browser tab, also replace
-`public/favicon.svg` or update the `<link rel="icon">` in [`index.html`](index.html).
+**To install the real logo, save it as `public/logo.png`. That is the whole step** — no
+code change. [`Logo`](src/components/Logo.tsx) requests `company.logo` (`/logo.png`) and
+silently falls back to the placeholder only while that file is missing, so the header and
+footer pick the real badge up as soon as it lands.
+
+### Icons
+
+The artwork has a solid white background and no alpha, which shows as a white square in
+the browser tab. `public/favicon.png` and `public/apple-touch-icon.png` are generated
+from it with a transparent circular mask:
+
+```bash
+python3 scripts/make-icons.py
+```
+
+Re-run that after replacing `public/logo.png`. The header and footer mask the same way in
+CSS (`.brand__mark`), so no separate asset is needed there.
 
 ## Design system
 

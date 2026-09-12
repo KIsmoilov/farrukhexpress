@@ -13,11 +13,11 @@ export const company = {
     'https://www.google.com/maps/search/?api=1&query=141+Broad+Blvd+Ste+116,+Cuyahoga+Falls,+OH+44221',
   hours: 'Dispatch available 24/7 · Office Mon–Fri, 9:00 AM – 6:00 PM EST',
   /**
-   * The one place the logo file is named. Drop the real artwork into public/
-   * and point this at it (e.g. '/logo.png') — header, footer, and the social
-   * preview image all follow from here.
+   * The real badge. Save the artwork to public/logo.png and it is picked up
+   * automatically — <Logo> falls back to logoFallback until that file exists.
    */
-  logo: '/logo.svg',
+  logo: '/logo.png',
+  logoFallback: '/logo.svg',
 } as const
 
 export const stats = [
